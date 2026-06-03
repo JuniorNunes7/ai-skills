@@ -8,10 +8,6 @@ Repositório pessoal para organizar skills.
 | --- | --- | --- |
 | Code Reviewer | Revisa PRs do GitHub com contexto do projeto e comentários inline. | [`skills/code-reviewer`](skills/code-reviewer/) |
 
-## Skills
-
-- [`Code Reviewer`](skills/code-reviewer/): agent para revisar pull requests no GitHub.
-
 Novas skills devem ser adicionadas dentro de `skills/`, cada uma em sua própria pasta.
 
 ## Como Usar Localmente
