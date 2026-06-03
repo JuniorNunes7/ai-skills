@@ -1,0 +1,14 @@
+interface:
+  display_name: "Code Reviewer"
+  short_description: "Review GitHub PRs with project context"
+  brand_color: "#2563EB"
+  default_prompt: "Use $code-reviewer to review this GitHub PR and prepare concise inline comments."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "github"
+      description: "GitHub MCP server for reading PRs, diffs, files, comments, and publishing review comments."
+      transport: "streamable_http"
+      url: "https://api.githubcopilot.com/mcp/"
+policy:
+  allow_implicit_invocation: true
