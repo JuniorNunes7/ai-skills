@@ -33,7 +33,7 @@ If the PR target is missing and cannot be inferred, ask for it before reviewing.
    - Similar files or existing implementations when the changed code depends on project style.
 4. Review for correctness first, then design quality:
    - Bugs, regressions, security, broken contracts, data loss, missing tests, and production risk.
-   - SOLID, maintainability, readability, project patterns, docs, and developer experience.
+   - Human-readable simplicity, SOLID, maintainability, readability, project patterns, docs, and developer experience.
 5. Ask the user when a high-impact convention cannot be inferred from code or docs. Do not invent project policy.
 6. Decide the output with the user for each PR:
    - Markdown draft.
