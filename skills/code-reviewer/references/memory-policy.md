@@ -73,6 +73,8 @@ Never store:
 
 Before updating memory, confirm that the decision should be remembered unless the user explicitly said so.
 
+Before adding a new `preferences` or `accepted_exceptions` entry, check the existing entries and do not create duplicate or substantially equivalent memories. Update or remove an existing entry only when the confirmed decision changes.
+
 When memory conflicts with current project docs or code, prefer current project evidence and ask whether memory should be updated.
 
 If memory grows noisy, propose summarizing related entries into a few compact preferences or accepted exceptions, then ask before updating the file.
