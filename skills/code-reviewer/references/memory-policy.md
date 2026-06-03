@@ -2,11 +2,13 @@
 
 ## Location
 
-Store repo-local memory at:
+Store memory inside this skill directory, never inside the repository being reviewed:
 
-`.code-reviewer/memory/<owner>__<repo>.json`
+`memory/<owner>__<repo>.json`
 
 Use lowercase owner and repo names. Replace `/` with `__`.
+
+Always check the exact memory file for the repository being reviewed before every review, even when the user does not mention memory. Do not list, scan, merge, or consult memory files for other repositories. If the exact file does not exist, proceed without memory and consider creating it only after the user confirms a durable preference or decision.
 
 ## Schema
 
@@ -38,6 +40,24 @@ Store only durable, confirmed decisions:
 - Repeatedly accepted architectural constraints.
 
 Each entry should be one short sentence or a small object with `topic`, `decision`, and optional `source`.
+
+## Proactive Suggestions
+
+After user feedback, analyze whether anything should become memory. Suggest saving it when it is:
+
+- Durable across future reviews.
+- Specific enough to guide behavior.
+- Confirmed by the user or clearly accepted.
+- Safe to store without code, secrets, or transient PR details.
+
+Do not wait for the user to ask for memory if their feedback reveals a reusable preference.
+
+If the feedback should not be stored, explain why briefly. Common reasons:
+
+- It only applies to the current PR.
+- It contains code, secrets, or sensitive details.
+- It conflicts with current project docs or stronger evidence.
+- It is too vague to guide future reviews.
 
 ## What Not To Store
 

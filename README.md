@@ -1,4 +1,4 @@
-# My Skills
+# AI Skills
 
 Repositório pessoal para organizar skills.
 

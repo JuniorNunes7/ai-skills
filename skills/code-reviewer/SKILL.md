@@ -26,7 +26,7 @@ If the PR target is missing and cannot be inferred, ask for it before reviewing.
 ## Required Workflow
 
 1. Identify the repository, PR number, base branch, head branch, changed files, commits, existing comments, and review threads.
-2. Load local memory for the repo from `.code-reviewer/memory/<owner>__<repo>.json` if it exists. Apply only compact, confirmed preferences that are relevant to this review.
+2. Always check skill-local memory before reviewing. Load only the exact repo memory file `memory/<owner>__<repo>.json` inside this skill directory if it exists, then apply only compact, confirmed preferences that are relevant to this review. Never scan, merge, or infer preferences from memory files for other repositories.
 3. Gather minimal project context before judging the changes:
    - PR metadata, diff, file list, comments, and review threads via GitHub MCP.
    - Project docs and conventions such as `README`, `CONTRIBUTING`, architecture docs, lint/test configs, package manifests, and nearby tests.
@@ -39,6 +39,7 @@ If the PR target is missing and cannot be inferred, ask for it before reviewing.
    - Markdown draft.
    - GitHub review using inline comments.
 7. Publishing to GitHub always requires explicit confirmation. Inline comments are the default for publishable findings. Findings without an exact diff line go into the review body.
+8. After the user reacts to the review, proactively identify feedback or decisions that may be worth remembering. Suggest saving only durable, useful memory; if the feedback is too specific, unsafe, contradictory, or not reusable, explain why it should not be stored.
 
 ## Review Standards
 
@@ -48,7 +49,7 @@ Use `references/context-policy.md` to decide how much code/docs to fetch before 
 
 Use `references/output-policy.md` for Markdown and GitHub review formats.
 
-Use `references/memory-policy.md` before reading or updating repo memory.
+Use `references/memory-policy.md` before reading or updating skill-local repo memory.
 
 ## MCP And Skills
 
@@ -66,6 +67,6 @@ If a tool is unavailable, state the limitation and request the smallest missing 
 
 ## Memory Updates
 
-After a review, update memory only for decisions the user confirmed or clearly accepted. Keep entries short and durable. Never store PR diffs, code snippets, secrets, transient facts, or long explanations.
+After a review or after user feedback, proactively suggest memory updates for decisions the user confirmed or clearly accepted. Keep entries short and durable. Never store PR diffs, code snippets, secrets, transient facts, or long explanations.
 
-When a preference is uncertain, ask before storing it.
+When a preference is uncertain, ask before storing it. If a proposed memory entry is not appropriate, explain the reason and continue without storing it.
