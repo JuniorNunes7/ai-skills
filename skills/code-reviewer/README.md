@@ -12,7 +12,7 @@ Ela foi desenhada para ajudar o usuário a revisar PRs com mais clareza: entende
 - Respeita padrões existentes do projeto quando eles podem ser inferidos.
 - Pergunta ao usuário quando uma decisão depende de contexto ou convenção ambígua.
 - Produz uma revisão em Markdown ou publica comentários inline no GitHub, sempre com confirmação antes de publicar.
-- Mantém memória compacta dentro da própria pasta da skill para preferências e decisões confirmadas.
+- Mantém memória compacta em uma pasta de dados ao lado da skill para preferências e decisões confirmadas.
 - Sugere salvar memória de forma proativa quando o feedback do usuário revela uma preferência reutilizável.
 
 ## Estrutura
@@ -23,8 +23,6 @@ code-reviewer/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
-├── memory/
-│   └── .gitignore
 └── references/
     ├── context-policy.md
     ├── memory-policy.md
@@ -43,12 +41,18 @@ code-reviewer/
 
 ## Memória
 
-A memória da skill fica sempre dentro da própria pasta da skill:
+A memória da skill fica em uma pasta de dados ao lado da pasta instalada da skill:
 
 ```text
-code-reviewer/memory/<owner>__<repo>.json
+../code-reviewer-data/memories/<owner>__<repo>.yaml
 ```
 
-Isso evita criar arquivos no repositório revisado e garante que a skill sempre saiba onde procurar preferências antes de começar uma revisão.
+Exemplo em uma instalação local:
 
-Os arquivos JSON de memória devem guardar apenas decisões duráveis e confirmadas. Eles não devem conter diffs, trechos de código, segredos, dados sensíveis ou fatos temporários de um PR.
+```text
+~/.agents/skills/code-reviewer-data/memories/<owner>__<repo>.yaml
+```
+
+Isso evita criar arquivos no repositório revisado e também evita perder memória quando a skill `code-reviewer` for reinstalada ou atualizada.
+
+Os arquivos YAML de memória devem guardar apenas decisões duráveis e confirmadas. Eles não devem conter diffs, trechos de código, segredos, dados sensíveis ou fatos temporários de um PR.

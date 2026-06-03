@@ -2,31 +2,30 @@
 
 ## Location
 
-Store memory inside this skill directory, never inside the repository being reviewed:
+Store memory outside the installed skill directory and never inside the repository being reviewed:
 
-`memory/<owner>__<repo>.json`
+`../code-reviewer-data/memories/<owner>__<repo>.yaml`
+
+The path is relative to the `code-reviewer` skill directory. For example, if the skill is installed at `~/.agents/skills/code-reviewer`, memory lives at `~/.agents/skills/code-reviewer-data/memories/*.yaml`.
 
 Use lowercase owner and repo names. Replace `/` with `__`.
 
 Always check the exact memory file for the repository being reviewed before every review, even when the user does not mention memory. Do not list, scan, merge, or consult memory files for other repositories. If the exact file does not exist, proceed without memory and consider creating it only after the user confirms a durable preference or decision.
 
-## Schema
+## Format
 
 Use this compact shape:
 
-```json
-{
-  "version": 1,
-  "repository": "owner/repo",
-  "updated_at": "YYYY-MM-DD",
-  "preferences": [],
-  "project_conventions": [],
-  "accepted_exceptions": [],
-  "review_output": {
-    "default_mode": "ask",
-    "github_comments": "inline"
-  }
-}
+```yaml
+version: 1
+repository: owner/repo
+updated_at: YYYY-MM-DD
+preferences: []
+project_conventions: []
+accepted_exceptions: []
+review_output:
+  default_mode: ask
+  github_comments: inline
 ```
 
 ## What To Store

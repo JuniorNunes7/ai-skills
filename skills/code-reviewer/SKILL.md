@@ -26,7 +26,7 @@ If the PR target is missing and cannot be inferred, ask for it before reviewing.
 ## Required Workflow
 
 1. Identify the repository, PR number, base branch, head branch, changed files, commits, existing comments, and review threads.
-2. Always check skill-local memory before reviewing. Load only the exact repo memory file `memory/<owner>__<repo>.json` inside this skill directory if it exists, then apply only compact, confirmed preferences that are relevant to this review. Never scan, merge, or infer preferences from memory files for other repositories.
+2. Always check external skill memory before reviewing. Load only the exact repo memory file `../code-reviewer-data/memories/<owner>__<repo>.yaml` relative to this skill directory if it exists, then apply only compact, confirmed preferences that are relevant to this review. Never scan, merge, or infer preferences from memory files for other repositories.
 3. Gather minimal project context before judging the changes:
    - PR metadata, diff, file list, comments, and review threads via GitHub MCP.
    - Project docs and conventions such as `README`, `CONTRIBUTING`, architecture docs, lint/test configs, package manifests, and nearby tests.
@@ -49,7 +49,7 @@ Use `references/context-policy.md` to decide how much code/docs to fetch before 
 
 Use `references/output-policy.md` for Markdown and GitHub review formats.
 
-Use `references/memory-policy.md` before reading or updating skill-local repo memory.
+Use `references/memory-policy.md` before reading or updating external repo memory.
 
 ## MCP And Skills
 
