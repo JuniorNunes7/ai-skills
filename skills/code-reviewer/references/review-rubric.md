@@ -7,6 +7,7 @@
 4. Tests: missing coverage for changed behavior, brittle tests, snapshots hiding behavior, and untested failure modes.
 5. Maintainability: human-readable simplicity, unnecessary complexity, weak boundaries, duplication, naming, readability, SOLID, and project convention drift.
 6. Documentation: missing or stale docs where the changed behavior affects users, operators, or contributors.
+7. Scope traceability: documented requirements missing from the implementation, or material changes whose purpose cannot be established from the available scope evidence.
 
 ## Severity
 - `blocker`: likely production breakage, security issue, data loss, broken public contract, or merge-blocking test failure.
@@ -34,4 +35,5 @@ Keep explanations simple. For complex points, describe the causal chain in plain
 - Treat simplification/readability improvements as important when they reduce cognitive load without fighting project conventions.
 - Do not require SOLID terminology in the comment unless it helps the user understand the issue.
 - If a finding depends on external library behavior that may have changed, verify it with official docs or ask for context.
+- Treat scope evidence proportionally: report an unimplemented confirmed requirement, question an unexplained material change, and summarize observed behavior when the description is unavailable or incomplete.
 - If no important issues are found, say that clearly and mention any residual test or context gaps.

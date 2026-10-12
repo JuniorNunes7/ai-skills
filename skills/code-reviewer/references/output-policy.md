@@ -21,6 +21,8 @@ Sugestão: ação concreta.
 Breve síntese do risco geral e lacunas de teste/contexto.
 ```
 
+When the PR description or accessible task context is absent or insufficient, make the summary state directly what the diff changed and any access limitation. When documented scope and implementation agree, a separate scope summary is unnecessary.
+
 Put architectural uncertainties in `Perguntas` when the user has not answered them yet. Do not present them as defects unless project evidence or the user's answer supports that conclusion.
 
 If there are no meaningful findings, write:
@@ -50,6 +52,7 @@ Use the review body for:
 - Findings without exact diff line.
 - Questions that affect the whole PR, especially unresolved architectural clarification questions.
 - Residual risk and tests not run.
+- A direct summary of observed changes and task-access limitations when the documented scope is absent or insufficient.
 
 Do not create top-level issue comments for normal review findings. If inline comments cannot be posted with available GitHub MCP tools, generate Markdown instead and explain the limitation.
 

@@ -22,9 +22,9 @@ Accept either:
 If the PR target is missing and cannot be inferred, ask for it before reviewing.
 
 ## Required Workflow
-1. Identify the repo, PR number, base/head branches, commits, changed files, comments, and review threads.
+1. Identify the repo, PR number, title and body, base/head branches, commits, changed files, comments, review threads, and linked task resources when present.
 2. Read only the exact repo memory file described in `references/memory-policy.md`, then apply relevant confirmed preferences.
-3. Gather context with `references/context-policy.md` before judging the diff.
+3. Gather context with `references/context-policy.md` and reconcile the documented scope with the diff before judging it.
 4. Review correctness first: bugs, regressions, security, contracts, data loss, tests, and production risk.
 5. Then review design quality: simplicity, maintainability, SOLID where useful, readability, project patterns, docs, and developer experience.
 6. Resolve high-impact ambiguity with a focused question; do not ask about low-impact style or discoverable facts.
