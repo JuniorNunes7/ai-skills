@@ -7,7 +7,7 @@ Use only the exact repo memory file. Store memory outside the reviewed repositor
 
 The path is relative to the `code-reviewer` skill directory. Use lowercase owner/repo names and replace `/` with `__`.
 
-Before every review, load only this exact file if it exists. Never list, scan, merge, or infer preferences from memory files for other repositories. If the file is missing, proceed without memory.
+Before every review, load only this exact file if it exists. Never list, scan, merge, or infer preferences from memory files for other repositories. If the file is missing, proceed without repository memory. This restriction applies to repository memory; the separate exact global profile in `global-memory-policy.md` is allowed.
 
 ## Format
 Use this compact shape:
