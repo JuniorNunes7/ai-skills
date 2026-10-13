@@ -12,6 +12,16 @@ Default to Brazilian Portuguese. Keep findings direct, factual, and actionable.
 
 Do not edit PR code or change repository files during review unless the user separately asks for implementation work.
 
+## Instruction Precedence
+Apply review guidance in this order when rules overlap:
+
+1. The user's current request and higher-priority platform instructions.
+2. This skill's base instructions and its reference policies.
+3. Confirmed memory for the repository under review.
+4. The global review-preferences profile.
+
+Global preferences tailor tone and depth only. They must never override this skill's base instructions or confirmed preferences, conventions, constraints, and accepted exceptions in the repository's own memory. When repository memory conflicts with global preferences, follow the repository memory and, when needed, explain the practical effect briefly.
+
 ## Inputs
 Accept either:
 
@@ -24,10 +34,10 @@ If the PR target is missing and cannot be inferred, ask for it before reviewing.
 ## Required Workflow
 1. Check the global review-preferences file using `references/global-memory-policy.md`. If it is missing or has an unfilled required preference, ask the onboarding questions in that reference and save the answers before collecting review evidence.
 2. Identify the repo, PR number, title and body, base/head branches, commits, changed files, comments, review threads, and linked task resources when present.
-3. Read only the exact repo memory file described in `references/memory-policy.md`, then apply relevant confirmed preferences.
+3. Read only the exact repo memory file described in `references/memory-policy.md`, then apply relevant confirmed preferences. Repository memory takes precedence over the global profile; neither can override this skill's base instructions.
 4. Gather context with `references/context-policy.md` and reconcile the documented scope with the diff before judging it.
 5. Review correctness first: bugs, regressions, security, contracts, data loss, tests, and production risk.
-6. Then review design quality, applying the global review preferences: simplicity, maintainability, SOLID where useful, readability, project patterns, docs, and developer experience.
+6. Then review design quality: simplicity, maintainability, SOLID where useful, readability, project patterns, docs, and developer experience. Apply the global depth preference when deciding whether to report non-critical improvements.
 7. Resolve high-impact ambiguity with a focused question; do not ask about low-impact style or discoverable facts.
 8. Choose output with the user: Markdown draft or GitHub review. Prefer inline comments for actionable findings with exact diff lines.
 9. Publish to GitHub only after explicit confirmation. Put findings without exact diff lines in the review body.

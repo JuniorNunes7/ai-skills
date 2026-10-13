@@ -7,11 +7,15 @@ Use one global file for durable preferences about *how* reviews should be perfor
 
 The path is relative to the `code-reviewer` skill directory. This is separate from the per-repository files in `memories/`: project conventions, architectural constraints, and accepted exceptions always belong in `memory-policy.md` instead.
 
+## Precedence
+This global profile is the lowest-priority source of review guidance. It may refine tone and depth only after applying the base instructions of `SKILL.md` and the confirmed memory for the repository being reviewed.
+
+Never use a global preference to override a base skill instruction or a repository-specific preference, convention, constraint, or accepted exception. If the global profile conflicts with repository memory, follow the repository memory. If it conflicts with the skill, follow the skill.
+
 ## Required Preferences
 
 Before collecting PR or diff evidence, load this exact file if it exists. A valid profile has all of these values filled:
 
-- `review_focus`: a non-empty list.
 - `tone.style`: a non-empty description of the desired tone. It may combine the suggested styles.
 - `depth`: one of `pragmatic`, `balanced`, or `thorough`.
 
@@ -22,9 +26,6 @@ Use this format:
 ```yaml
 version: 1
 updated_at: YYYY-MM-DD
-review_focus:
-  - readable code that tells the business story
-  - behavior, contracts, and meaningful tests
 tone:
   style: direct and explanatory
 depth: balanced
@@ -37,20 +38,13 @@ Ask the required questions together, in the user's language. Present the suggest
 ```markdown
 Before I start reviewing, I need to set up your global review preferences. They apply across repositories and can be changed later.
 
-1. What should receive extra attention, beyond the non-negotiable checks for correctness, security, and contracts?
-   - Readable code that tells the business story (recommended)
-   - Behavior, contracts, and meaningful tests
-   - Clear architectural boundaries and project conventions
-   - Documentation, scope, and developer experience
-   You can choose more than one or describe your own focus.
-
-2. Which tone should the review use?
+1. Which tone should the review use?
    - Direct and explanatory (recommended)
    - Explanatory and didactic
    - Friendly and collaborative
    - Lighthearted, with restrained humor when appropriate
 
-3. How deep should the review go?
+2. How deep should the review go?
    - Pragmatic: only merge-impacting findings
    - Balanced: important findings plus useful local improvements (recommended)
    - Thorough: inspect more alternatives and report non-blocking improvements too
@@ -60,11 +54,9 @@ If the user supplies only some answers, ask only for the missing required prefer
 
 ## Apply the Preferences
 
-`review_focus` changes emphasis and context-gathering effort; it never suppresses correctness, security, privacy, contracts, data integrity, or material regression checks.
+`tone.style` changes phrasing, not the evidence standard or the language/tone requirements of a repository's confirmed memory. Keep every finding factual, respectful, concrete, and actionable. Use `lighthearted` sparingly; never make humor at the expense of a person, team, or the seriousness of a defect.
 
-`tone.style` changes phrasing, not the evidence standard. Keep every finding factual, respectful, concrete, and actionable. Use `lighthearted` sparingly; never make humor at the expense of a person, team, or the seriousness of a defect.
-
-`depth` changes the reporting threshold for non-critical maintainability, documentation, and testing improvements. It does not permit overlooking a blocker or major issue.
+`depth` changes the reporting threshold for non-critical maintainability, documentation, and testing improvements. It does not permit overlooking a blocker or major issue, or relaxing a review requirement established by the skill or repository memory.
 
 ## Maintain the Global File
 
